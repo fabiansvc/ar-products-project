@@ -285,7 +285,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 465905970}
         m_TargetAssemblyTypeName: Products, Assembly-CSharp
-        m_MethodName: OnClickButtonProduct2
+        m_MethodName: OnHandleProduct2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -351,7 +351,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &259715464
 RectTransform:
   m_ObjectHideFlags: 0
@@ -417,10 +417,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1509881920}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 465905969}
+        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
+        m_MethodName: OnHandleInfoExit
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -428,30 +428,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 259715463}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1545800259}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &259715466
 MonoBehaviour:
@@ -577,7 +553,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 465905970}
         m_TargetAssemblyTypeName: Products, Assembly-CSharp
-        m_MethodName: OnClickButtonProduct3
+        m_MethodName: OnHandleProduct3
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -824,7 +800,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 465905970}
         m_TargetAssemblyTypeName: Products, Assembly-CSharp
-        m_MethodName: OnClickButtonSelectProduct
+        m_MethodName: OnHandleSelectProduct
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -977,6 +953,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfeb8fe1c8667444e8eafe1c7be88b3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonInfoExit: {fileID: 259715465}
+  buttonInfoShow: {fileID: 1545800261}
+  panelInfo: {fileID: 1509881920}
+  buttonSelectProduct: {fileID: 422368527}
+  panelProducts: {fileID: 1665684619}
 --- !u!114 &465905970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -990,7 +971,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonSelectProduct: {fileID: 422368527}
-  productsGameObject: {fileID: 1665684619}
+  panelProducts: {fileID: 1665684619}
 --- !u!1 &498732849
 GameObject:
   m_ObjectHideFlags: 0
@@ -1315,7 +1296,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 465905970}
         m_TargetAssemblyTypeName: Products, Assembly-CSharp
-        m_MethodName: OnClickButtonProduct1
+        m_MethodName: OnHandleProduct1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1601,7 +1582,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 465905969}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
-        m_MethodName: Exit
+        m_MethodName: OnHandleOff
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2079,22 +2060,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1509881920}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1545800259}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 465905969}
+        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
+        m_MethodName: OnHandleInfoShow
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2102,18 +2071,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 259715463}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1545800262
 MonoBehaviour:
@@ -2163,7 +2120,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1665684620}
   m_Layer: 5
-  m_Name: Products
+  m_Name: PanelProducts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

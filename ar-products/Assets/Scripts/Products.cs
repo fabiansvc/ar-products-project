@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class Products : MonoBehaviour
 {
     private static Products instance;
-    public Button buttonSelectProduct;
-    public GameObject productsGameObject;
-    private string productSelected;
     private GameObject product;
+    public Button buttonSelectProduct;
+    public GameObject panelProducts;
+    private string productSelected;
     
     private void Awake()
     {
@@ -23,31 +23,16 @@ public class Products : MonoBehaviour
         return instance == null? instance = new Products() : instance;
     }
 
-    public void OnClickButtonSelectProduct()
+    public GameObject GetProduct()
     {
-        productSelected = "None";
-        DisposeProduct();
-        ChangeVisibitilityButtons(false, true);
+        return product;
     }
 
-    public void OnClickButtonProduct1()
+    public void SetProduct(GameObject _product)
     {
-        productSelected = "Chair";
-        ChangeVisibitilityButtons(true, false);
+        product = _product;
     }
-
-    public void OnClickButtonProduct2()
-    {
-        productSelected = "Table";
-        ChangeVisibitilityButtons(true, false);
-    }
-
-    public void OnClickButtonProduct3()
-    {
-        productSelected = "Watch";
-        ChangeVisibitilityButtons(true, false);
-    }
-
+    
     public string GetProductSelected()
     {
         return productSelected;
@@ -58,27 +43,42 @@ public class Products : MonoBehaviour
         productSelected = _productSelected;
     }
 
-    public GameObject GetProduct()
-    {
-        return product;
-    }
-
-    public void SetProduct(GameObject _product)
-    {
-        product = _product;
-    }
-
     public void DisposeProduct()
     {
         if(product != null)
         {
-            Destroy(product);
+            Destroy(product, 1.0f);
         }
     }
 
-    private void ChangeVisibitilityButtons(bool statusButtonSelectProduct, bool statusProductsGameObject)
+    public void OnHandleSelectProduct()
+    {
+        productSelected = "None";
+        DisposeProduct();
+        ChangeStatusProducts(false, true);
+    }
+
+    public void OnHandleProduct1()
+    {
+        productSelected = "Chair";
+        ChangeStatusProducts(true, false);
+    }
+
+    public void OnHandleProduct2()
+    {
+        productSelected = "Table";
+        ChangeStatusProducts(true, false);
+    }
+
+    public void OnHandleProduct3()
+    {
+        productSelected = "Watch";
+        ChangeStatusProducts(true, false);
+    }
+
+    private void ChangeStatusProducts(bool statusButtonSelectProduct, bool statusPanelProducts)
     {
         buttonSelectProduct.gameObject.SetActive(statusButtonSelectProduct);
-        productsGameObject.SetActive(statusProductsGameObject);
+        panelProducts.SetActive(statusPanelProducts);
     }
 }
