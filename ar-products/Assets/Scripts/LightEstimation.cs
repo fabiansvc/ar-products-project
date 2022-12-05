@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 
-
 [RequireComponent(typeof(Light))]
 public class LightEstimation : MonoBehaviour
 {

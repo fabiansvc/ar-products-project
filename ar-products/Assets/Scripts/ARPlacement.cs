@@ -7,45 +7,37 @@ using UnityEngine.XR.ARSubsystems;
 
 public class ARPlacement : MonoBehaviour
 {
-    public GameObject arObjectToSpawnMachine;
-
+    public GameObject chairPrefab;
     public GameObject placementIndicator;
-
     public GameObject canvas;
-
     public Camera aRCamera;
-
-    private GameObject product;
-
     private Pose placementPose;
-
     private ARSessionOrigin sessionOrigin;
-
     private ARRaycastManager aRRaycastManager;
-
     private List<ARRaycastHit> hits;
+    private string productSelected;
+    private bool placementPoseIsValid;
+    private bool isButtonSelectProduct;
+    private GameObject prefabProductSelected;
 
-    private bool placementPoseIsValid = false;
-
-    void Start()
+    public void Start()
     {
         sessionOrigin = GetComponent<ARSessionOrigin>();
         aRRaycastManager = FindObjectOfType<ARRaycastManager>();
+        placementPoseIsValid = false;
     }
 
-    // need to update placement indicator, placement pose and spawn
+    public void Update()
+    {  
+        productSelected = Products.GetInstance().GetProductSelected();
 
-    void Update()
-    {
-        UpdatePlacementPose();
-        UpdatePlacementIndicator();
-
-        if (
-            product == null &&
-            placementPoseIsValid &&
-            Input.touchCount > 0 &&
-            Input.GetTouch(0).phase == TouchPhase.Began
-        )
+        if(productSelected != "None")
+        {
+            UpdatePlacementPose();
+            UpdatePlacementIndicator();   
+        }
+        
+        if (Products.GetInstance().GetProduct() == null && placementPoseIsValid && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             ARPlaceObject();
         }
@@ -60,6 +52,7 @@ public class ARPlacement : MonoBehaviour
             .Raycast(screenCenter, hits, TrackableType.PlaneWithinPolygon);
 
         placementPoseIsValid = hits.Count > 0;
+
         if (placementPoseIsValid)
         {
             placementPose = hits[0].pose;
@@ -68,7 +61,7 @@ public class ARPlacement : MonoBehaviour
 
     void UpdatePlacementIndicator()
     {
-        if (product == null && placementPoseIsValid)
+        if (Products.GetInstance().GetProduct() == null && placementPoseIsValid)
         {
             var cameraForward = aRCamera.transform.forward;
             var cameraBearing =
@@ -89,9 +82,31 @@ public class ARPlacement : MonoBehaviour
 
     void ARPlaceObject()
     {
-        product =
-            Instantiate(arObjectToSpawnMachine,
+        setInstantiatePrefab(GetPrefabProductSelected());
+    }
+
+    private void setInstantiatePrefab(GameObject prefab)
+    {
+        Products.GetInstance().SetProduct(Instantiate(prefab,
             placementPose.position,
-            placementPose.rotation);
+            placementPose.rotation));
+    }
+
+    private GameObject GetPrefabProductSelected()
+    {
+        switch(productSelected) 
+        {
+            case "Chair":
+                prefabProductSelected = chairPrefab;
+                break;
+            case "Table":
+                prefabProductSelected = chairPrefab;
+                break;
+            case "Watch":
+                prefabProductSelected = chairPrefab;
+            break;
+        }
+        
+        return prefabProductSelected;
     }
 }
