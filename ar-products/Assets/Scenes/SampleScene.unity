@@ -2395,8 +2395,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chairPrefab: {fileID: 7687912276957265452, guid: c62a0a9a05e7e1b42ba2ff7f86d9039f, type: 3}
+  swordPrefab: {fileID: 1216136951997052708, guid: 1d5670eaf13f2ca41b9b69bbb74b6256, type: 3}
+  ballPrefab: {fileID: 6205034438341934566, guid: 4c0632ef93f1ef348acd04f2cae934e2, type: 3}
   placementIndicator: {fileID: 499594436}
-  canvas: {fileID: 1293950089}
   aRCamera: {fileID: 498732850}
 --- !u!1 &2076233519
 GameObject:

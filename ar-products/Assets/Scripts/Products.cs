@@ -14,8 +14,6 @@ public class Products : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        product = null;
-        productSelected = "None";
     }
 
     public static Products GetInstance()
@@ -47,7 +45,7 @@ public class Products : MonoBehaviour
     {
         if(product != null)
         {
-            Destroy(product, 1.0f);
+            Destroy(product, 2.0f);
         }
     }
 
@@ -66,13 +64,13 @@ public class Products : MonoBehaviour
 
     public void OnHandleProduct2()
     {
-        productSelected = "Table";
+        productSelected = "Sword";
         ChangeStatusProducts(true, false);
     }
 
     public void OnHandleProduct3()
     {
-        productSelected = "Watch";
+        productSelected = "Ball";
         ChangeStatusProducts(true, false);
     }
 

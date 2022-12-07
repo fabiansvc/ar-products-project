@@ -8,8 +8,9 @@ using UnityEngine.XR.ARSubsystems;
 public class ARPlacement : MonoBehaviour
 {
     public GameObject chairPrefab;
+    public GameObject swordPrefab;
+    public GameObject ballPrefab;
     public GameObject placementIndicator;
-    public GameObject canvas;
     public Camera aRCamera;
     private Pose placementPose;
     private ARSessionOrigin sessionOrigin;
@@ -34,12 +35,12 @@ public class ARPlacement : MonoBehaviour
         if(productSelected != "None")
         {
             UpdatePlacementPose();
-            UpdatePlacementIndicator();   
-        }
-        
-        if (Products.GetInstance().GetProduct() == null && placementPoseIsValid && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-        {
-            ARPlaceObject();
+            UpdatePlacementIndicator();  
+            
+            if (Products.GetInstance().GetProduct() == null && placementPoseIsValid && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+            {
+                ARPlaceObject(GetPrefabProductSelected(productSelected));
+            } 
         }
     }
 
@@ -80,30 +81,28 @@ public class ARPlacement : MonoBehaviour
         }
     }
 
-    void ARPlaceObject()
-    {
-        setInstantiatePrefab(GetPrefabProductSelected());
-    }
-
-    private void setInstantiatePrefab(GameObject prefab)
+    void ARPlaceObject(GameObject prefab)
     {
         Products.GetInstance().SetProduct(Instantiate(prefab,
             placementPose.position,
             placementPose.rotation));
     }
 
-    private GameObject GetPrefabProductSelected()
+    private GameObject GetPrefabProductSelected(string _productSelected)
     {
-        switch(productSelected) 
+        switch(_productSelected) 
         {
             case "Chair":
                 prefabProductSelected = chairPrefab;
                 break;
-            case "Table":
-                prefabProductSelected = chairPrefab;
+            case "Sword":
+                prefabProductSelected = swordPrefab;
                 break;
-            case "Watch":
-                prefabProductSelected = chairPrefab;
+            case "Ball":
+                prefabProductSelected = ballPrefab;
+            break;
+            default:
+                prefabProductSelected = null;
             break;
         }
         
