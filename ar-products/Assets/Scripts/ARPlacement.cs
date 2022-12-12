@@ -10,7 +10,7 @@ public class ARPlacement : MonoBehaviour
     public GameObject chairPrefab;
     public GameObject swordPrefab;
     public GameObject ballPrefab;
-    public GameObject placementIndicator;
+    public GameObject placementAim;
     public Camera aRCamera;
     private Pose placementPose;
     private ARSessionOrigin sessionOrigin;
@@ -35,7 +35,7 @@ public class ARPlacement : MonoBehaviour
         if(productSelected != "None")
         {
             UpdatePlacementPose();
-            UpdatePlacementIndicator();  
+            UpdatePlacementAim();  
             
             if (Products.GetInstance().GetProduct() == null && placementPoseIsValid && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
             {
@@ -60,7 +60,7 @@ public class ARPlacement : MonoBehaviour
         }
     }
 
-    void UpdatePlacementIndicator()
+    void UpdatePlacementAim()
     {
         if (Products.GetInstance().GetProduct() == null && placementPoseIsValid)
         {
@@ -69,15 +69,15 @@ public class ARPlacement : MonoBehaviour
                 new Vector3(cameraForward.x, 0, cameraForward.z).normalized;
 
             placementPose.rotation = Quaternion.LookRotation(cameraBearing);
-            placementIndicator.SetActive(true);
-            placementIndicator
+            placementAim.SetActive(true);
+            placementAim
                 .transform
                 .SetPositionAndRotation(placementPose.position,
                 placementPose.rotation);
         }
         else
         {
-            placementIndicator.SetActive(false);
+            placementAim.SetActive(false);
         }
     }
 

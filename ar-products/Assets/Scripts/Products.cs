@@ -45,7 +45,7 @@ public class Products : MonoBehaviour
     {
         if(product != null)
         {
-            Destroy(product, 2.0f);
+            Destroy(product);
         }
     }
 

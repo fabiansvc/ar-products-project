@@ -6,33 +6,33 @@ using System.Collections;
 
 public class Menu : MonoBehaviour
 {  
-    public Button buttonInfoExit;
-    public Button buttonInfoShow;
+    public Button buttonClose;
+    public Button buttonInfo;
     public GameObject panelInfo;
     public Button buttonSelectProduct;
     public GameObject panelProducts;
 
     // Function that listen the exit event
-    public void OnHandleOff()
+    public void OnHandleLogout()
     {
         Application.Quit();
     }
 
-    public void OnHandleInfoShow()
+    public void OnHandleInfo()
     {
         ChangeStatusMenu(false, true, true, false, false);
     }
 
-    public void OnHandleInfoExit()
+    public void OnHandleClose()
     {
         ChangeStatusMenu(true, false, false, true, false);
     }
 
-    private void ChangeStatusMenu(bool statusButtonInfoShow, bool statusButtonInfoExit,
+    private void ChangeStatusMenu(bool statusButtonInfo, bool statusButtonClose,
         bool statusPanelInfo, bool statusButtonSelectProduct, bool statusPanelProducts)
     {
-        buttonInfoShow.gameObject.SetActive(statusButtonInfoShow);
-        buttonInfoExit.gameObject.SetActive(statusButtonInfoExit);
+        buttonInfo.gameObject.SetActive(statusButtonInfo);
+        buttonClose.gameObject.SetActive(statusButtonClose);
         panelInfo.SetActive(statusPanelInfo);
         buttonSelectProduct.gameObject.SetActive(statusButtonSelectProduct);
         panelProducts.SetActive(statusPanelProducts);
