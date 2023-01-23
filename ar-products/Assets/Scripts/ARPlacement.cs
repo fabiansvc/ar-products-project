@@ -7,9 +7,9 @@ using UnityEngine.XR.ARSubsystems;
 
 public class ARPlacement : MonoBehaviour
 {
-    public GameObject chairPrefab;
-    public GameObject swordPrefab;
-    public GameObject ballPrefab;
+    public GameObject chesterPrefab;
+    public GameObject headPhonePrefab;
+    public GameObject legoPrefab;
     public GameObject placementAim;
     public Camera aRCamera;
     private Pose placementPose;
@@ -92,14 +92,14 @@ public class ARPlacement : MonoBehaviour
     {
         switch(_productSelected) 
         {
-            case "Chair":
-                prefabProductSelected = chairPrefab;
+            case "Chester":
+                prefabProductSelected = chesterPrefab;
                 break;
-            case "Sword":
-                prefabProductSelected = swordPrefab;
+            case "Headphone":
+                prefabProductSelected = headPhonePrefab;
                 break;
-            case "Ball":
-                prefabProductSelected = ballPrefab;
+            case "Lego":
+                prefabProductSelected = legoPrefab;
             break;
             default:
                 prefabProductSelected = null;

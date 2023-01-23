@@ -3,7 +3,13 @@ guid: 98ef84d17353fd7428c89ad5f654518e
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - chesterPrefab: {fileID: 3913170457981874834, guid: c109b1a21711552458084bb762198379, type: 3}
+  - headPhonePrefab: {fileID: 8171058522317197459, guid: 52065ef282da3f444a2fc9de7b417caf, type: 3}
+  - legoPrefab: {fileID: 333469800150584102, guid: 5ca90186617720849b140af0fe882a55, type: 3}
+  - malumetaPrefab: {fileID: 3137728080930363625, guid: 8ae46ab2e0cb1ec449fe1c09313777d8, type: 3}
+  - placementAim: {instanceID: 0}
+  - aRCamera: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

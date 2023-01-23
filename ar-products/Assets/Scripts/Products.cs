@@ -9,6 +9,7 @@ public class Products : MonoBehaviour
     private GameObject product;
     public Button buttonSelectProduct;
     public GameObject panelProducts;
+    public GameObject stars;
     private string productSelected;
     
     private void Awake()
@@ -53,30 +54,31 @@ public class Products : MonoBehaviour
     {
         productSelected = "None";
         DisposeProduct();
-        ChangeStatusProducts(false, true);
+        ChangeStatusProducts(false, true, false);
     }
 
     public void OnHandleProduct1()
     {
-        productSelected = "Chair";
-        ChangeStatusProducts(true, false);
+        productSelected = "Chester";
+        ChangeStatusProducts(true, false, true);
     }
 
     public void OnHandleProduct2()
     {
-        productSelected = "Sword";
-        ChangeStatusProducts(true, false);
+        productSelected = "Headphone";
+        ChangeStatusProducts(true, false, true);
     }
 
     public void OnHandleProduct3()
     {
-        productSelected = "Ball";
-        ChangeStatusProducts(true, false);
+        productSelected = "Lego";
+        ChangeStatusProducts(true, false, true);
     }
 
-    private void ChangeStatusProducts(bool statusButtonSelectProduct, bool statusPanelProducts)
+    private void ChangeStatusProducts(bool statusButtonSelectProduct, bool statusPanelProducts, bool statusStars)
     {
         buttonSelectProduct.gameObject.SetActive(statusButtonSelectProduct);
         panelProducts.SetActive(statusPanelProducts);
+        stars.SetActive(statusStars);
     }
 }
